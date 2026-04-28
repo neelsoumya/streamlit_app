@@ -29,8 +29,26 @@ noise_lons = np.random.uniform(114.2, 114.4, noise_count)
 
 cases = pd.DataFrame({
   'lat': np.concatenate([cluster_lats, noise_lats]),
-  'lon': np.concatenate([cluster_lons, noise_lons)
+  'lon': np.concatenate([cluster_lons, noise_lons])
 })
+
+poise = pd.DataFrame({
+ 'name': ['International Plaza', 'Seafood Market', 'Railway Station', 'Wuhan CDC'],
+ 'lat': [30.584, 30.6195, 30.618, 30.612],
+ 'lon': [114.271, 114.2577, 114.25, 114.265],
+ 'is_source': [False, True, False, False]                    
+})
+
+# build map
+m = folium.Map(location = [30.61, 114.28],
+               zoom_start = 13,
+               tiles = 'cartodbpositron'
+              )
+
+HeatMap(cases[['lat','lon']].values.tolist(), radius = 12, blur = 15).add_to(m)
+
+
+
 
 
 
