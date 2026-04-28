@@ -32,7 +32,7 @@ cases = pd.DataFrame({
   'lon': np.concatenate([cluster_lons, noise_lons])
 })
 
-poise = pd.DataFrame({
+pois = pd.DataFrame({
  'name': ['International Plaza', 'Seafood Market', 'Railway Station', 'Wuhan CDC'],
  'lat': [30.584, 30.6195, 30.618, 30.612],
  'lon': [114.271, 114.2577, 114.25, 114.265],
